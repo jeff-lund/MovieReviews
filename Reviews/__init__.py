@@ -32,8 +32,6 @@ def get_model():
         from . import model_datastore
         model = model_datastore
     else:
-        raise ValueError(
-            "No appropriate databackend configured. "
-            "Please specify datastore, cloudsql, or mongodb.")
+        raise ValueError("No appropriate databackend configured. ")
 
     return model
