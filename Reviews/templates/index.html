@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<center>
+  <h1>{{ text[1] }}</h1>
+  <h3>{{ text[2] }}</h3>
+  <br>
+  <h4>{{ text[3] }}</h4>
+  <form method="POST" action="">
+    <select name="review_lang">
+      <option value="en">{{ text[4] }}</option>
+      <option value="fr">{{ text[5] }}</option>
+      <option value="it">{{ text[6] }}</option>
+      <option value="ko">{{ text[7] }}</option>
+      <option value="es">{{ text[8] }}</option>
+      <option value="tr">{{ text[9] }}</option>
+    </select>
+    <button onMouseOver="this.style.backgroundColor='#8eb190'" onMouseOut="this.style.backgroundColor='#4CAF50'" type="submit" 
+    style="background-color:#4CAF50; color:white;">{{ text[10] }}</button>
+  </form>
+  <h4>{{ text[11] }}: {{ lang }}</h4>
+  <br>
+  <form>
+ 	<button onMouseOver="this.style.backgroundColor='#856E9B'" onMouseOut="this.style.backgroundColor='#4d0099'" type="submit" formaction="{{ url_for('views.reviews', language=language) }}" 
+ 	style="background-color:#4d0099; color:white; border-radius: 6px; padding-left: 1.5em; padding-right: 1.5em;">{{ text[12] }}</button>
+  	<button onMouseOver="this.style.backgroundColor='#89B0BD'" onMouseOut="this.style.backgroundColor='#008CBA'" type="submit" formaction="{{ url_for('views.submit', language=language) }}"
+  	style="background-color:#008CBA; color:white; border-radius: 6px;" >{{ text[13] }}</button>
+  </form>
+</center>
+{% endblock %}

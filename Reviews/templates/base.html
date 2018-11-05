@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+        <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:,">
+    <title>
+      {% block title %} {% endblock %} - Ripe Tomatoes
+    </title>
+  </head>
+  {% block header %}
+  <div class="header">
+    <a href="{{ url_for('views.main', language=language) }}">{{ text[0] }}</a>
+  </div>
+  {% endblock %}
+  <div class="body">
+    {% block content %}{% endblock content %}
+  </div>
+</html>

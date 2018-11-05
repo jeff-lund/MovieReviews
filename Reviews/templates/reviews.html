@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} Reviews {% endblock %}
+{% block content %}
+<center class="logo">{{text[1]}}</center>
+<center>
+  <form>
+  	<button onMouseOver="this.style.backgroundColor='#856E9B'" onMouseOut="this.style.backgroundColor='#4d0099'" type="submit" formaction="{{ url_for('views.main', language=language) }}" 
+  	style="background-color:#4d0099; color:white; border-radius: 6px; padding-left: 2.6em; padding-right: 2.6em;">{{ text[2] }}</button>
+  	<button onMouseOver="this.style.backgroundColor='#89B0BD'" onMouseOut="this.style.backgroundColor='#008CBA'" type="submit" formaction="{{ url_for('views.submit', language=language) }}" 
+  	style="background-color:#008CBA; color:white; border-radius: 6px;">{{ text[3] }}</button>
+  </form>
+</center>
+{% for movie in movies %}
+<div class="card">
+  <h1>{{ movie }}</h1>
+  {{ text[4] }}: {{ movies[movie]['director']}}<br>
+  {{ text[5] }}: {{ movies[movie]['release_year'] }}<br>
+  {{ text[6] }}: {{ movies[movie]['mov_rating'] }}<br>
+  {{ text[7] }}: {{ movies[movie]['runtime'] }} {{ text[8] }}<br>
+  {{ text[9] }}: {{ ', '.join(movies[movie]['genre']) }} <br><br>
+  {% for review in reviews[movie] %}
+  <div class="ele">
+    <form method="POST">
+	    <button class="microphone" type=submit name="synth" value={{ review['id'] }}><i style="background-color: inherit;" class="fa fa-microphone"></i></button>
+    </form><br>
+      {{ review['review'] }}<br><br>
+    {{ text[10] }}: {{ review['rev_rating'] }}/5<br>
+    {{ text[11] }}: {{ review['rev_name'] }}<br>
+
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+<br>
+{% endblock %}

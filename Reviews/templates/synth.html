@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Reading Rainbow {% endblock %}
+{% block content %}
+<center>
+  <br>
+  <audio controls>
+    <source src="{{ audio }}" type="audio/mp3">
+      {{ text[1] }}
+  </audio>
+  <br>
+  <br>
+  <br>
+  <form>
+    <button onMouseOver="this.style.backgroundColor='#856E9B'" onMouseOut="this.style.backgroundColor='#4d0099'" type="submit" formaction="{{ url_for('views.reviews', language=language) }}" 
+    style="background-color:#4d0099; color:white; border-radius: 6px; padding-left: 1.5em; padding-right: 1.5em;">{{ text[2] }}</button>
+  </form>
+</center>
+{% endblock %}
